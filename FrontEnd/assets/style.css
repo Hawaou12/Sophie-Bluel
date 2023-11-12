@@ -846,11 +846,11 @@ footer nav ul {
 	left: 40%;
 top: 720px;
 }
-
+/*
 .valider:hover {
 	background-color: #1d6154;
 }
-
+*/
 .modal_ajouter_valider {
 	width: 90%;
 	display: flex;

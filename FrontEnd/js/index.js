@@ -1,3 +1,5 @@
+const workTous = [];
+
 fetch("http://localhost:5678/api/works")
     .then((response) => response.json())
     .then((works) => {
@@ -77,12 +79,33 @@ function changeState(event) {
     const clickedElement = event.target;
     clickedElement.style.background = "#1d6154";
     clickedElement.style.color = "white";
+    //clickedElement.textContent;
+    //console.log("showing click content");
+    //console.log(clickedElement.textContent);
+    //filter(clickedElement.textContent, works);
+    if((clickedElement.textContent) == "Tous"){
+        fetch("http://localhost:5678/api/works")
+        .then((response) => response.json())
+        .then((works) => {
+        createWorks(works);
+    });
+        //console.log("tous click");
+    }
 }
 
 // ##### apply filer
 
 function filter(nameDuFiltre, works) {
     console.log(nameDuFiltre, works);
+    var filterWork = [];
+    for(const work of works){
+        if(nameDuFiltre == work.category.name){
+            filterWork.push(work);
+        }
+    }
+
     // Filtre tes works
-    createWorks(works);
+    createWorks(filterWork);
 }
+
+

@@ -89,6 +89,28 @@ function ouvre_modal_ajoute(e) {
     const category = document.getElementById("categorie");
     category.value = null;
 
+
+
+
+    document.getElementById("btn_valider").addEventListener("mouseover", mouseOver);
+
+    function mouseOver() {
+      const mytitle = document.getElementById("input_modal");
+      const mycat = document.getElementById("categorie");
+      const myImage = document.getElementById("img_input");
+
+      if (mytitle.value != "" && mycat.value != "" && myImage.value != "") {
+        document.getElementById("btn_valider").style.background="#1d6154";
+       
+     }else{
+      document.getElementById("btn_valider").style.background="#A7A7A7";
+     }
+    }
+
+
+
+
+
     document.getElementById("btn_valider").addEventListener("click", function (event) {
         event.preventDefault();
         const mytitle = document.getElementById("input_modal");
