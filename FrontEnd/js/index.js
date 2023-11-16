@@ -1,12 +1,12 @@
-const workTous = [];
-
 fetch("http://localhost:5678/api/works")
     .then((response) => response.json())
     .then((works) => {
-        console.log(works);
+        //console.log(works);
         createWorks(works);
         initCategories(works);
     });
+
+//### récupération des categories par API
 
 function initCategories(works) {
     fetch("http://localhost:5678/api/categories")
@@ -17,6 +17,7 @@ function initCategories(works) {
         });
 }
 
+// Affichage des works (cartes)
 function createWorks(works) {
     const myDiv = document.getElementById("myGallery");
     myDiv.innerHTML = "";
@@ -59,16 +60,21 @@ function createCategories(categoriesData, works) {
         button.textContent = categorie.name;
 
         button.onclick = function (event) {
-            changeState(event);
-            filter(event.target.textContent, works);
+            changeState(event, works);
         };
         myDiv.appendChild(button);
     }
+
+    // Gestion BTN Tous
+    const btnAllProjects = document.getElementById("btnAllProjects");
+    btnAllProjects.addEventListener("click", (event) => {
+        changeState(event, works);
+    });
 }
 
-//####  filter ######
+//####  fionction changement  de couleur des boutuons ######
 
-function changeState(event) {
+function changeState(event, works) {
     const myButtons = document.getElementById("filter").children;
 
     for (const myButton of myButtons) {
@@ -83,29 +89,27 @@ function changeState(event) {
     //console.log("showing click content");
     //console.log(clickedElement.textContent);
     //filter(clickedElement.textContent, works);
-    if((clickedElement.textContent) == "Tous"){
-        fetch("http://localhost:5678/api/works")
-        .then((response) => response.json())
-        .then((works) => {
+
+    //##### filtre du bouton Tous######""
+    if (clickedElement.textContent == "Tous") {
+        console.log(works);
         createWorks(works);
-    });
         //console.log("tous click");
+    } else {
+        filter(event.target.textContent, works);
     }
 }
 
-// ##### apply filer
+// ##### filtre des autres boutons ######
 
 function filter(nameDuFiltre, works) {
     console.log(nameDuFiltre, works);
     var filterWork = [];
-    for(const work of works){
-        if(nameDuFiltre == work.category.name){
+    for (const work of works) {
+        if (nameDuFiltre == work.category.name) {
             filterWork.push(work);
         }
     }
-
-    // Filtre tes works
+    // création des works
     createWorks(filterWork);
 }
-
-

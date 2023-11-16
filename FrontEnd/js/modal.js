@@ -1,33 +1,16 @@
 //#################### Code JS Modal ######################
-// Get the modal
+// récupération du modal
 var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
+// récupération du bouton d'ouverture du modal
 var btn = document.getElementById("modifier");
-//var btn = document.getElementById("modifiers");
 
-//Get the <span> element that closes the modal
+// bouton fermeture du modal
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
     modal.style.display = "block";
-
-    //     const modalGallery = document.getElementById("modalGallery");
-    //     let html = "";
-    //     for (work of works) {
-    //         html += `<div class="photoA">
-    // 	<a href="#">
-    // 		<i class="fa-sharp fa-regular fa-trash-can iconPoubelle" id="${work.id}"></i>
-    // 		<img src="${work.imageUrl}" alt="${work.title} "class="imageA">
-    // 	 </a>
-    // 	<div class="detailPhotos">
-    // 		<div class="detail_photoA">éditer</div>
-    // 	</div>
-    // </div>`;
-    // }
-
-    //     modalGallery.innerHTML = html;
 
     // recuperation des éléments par classe###########
     document.querySelectorAll(".iconPoubelle").forEach((element) => {
@@ -76,9 +59,8 @@ function ouvre_modal_ajoute(e) {
     model_page.style.display = null;
     model_page.removeAttribute("aria-hidden");
     modalAjouter = model_page;
-    //modalAjouter?.addEventListener("click", fermer_modal_ajoute);
     modalAjouter.querySelector("modal-javascipt");
-    //.addEventListener("click", stop);
+
 
     document.getElementById("ajouter").addEventListener("click", function (event) {
         event.preventDefault();
@@ -88,6 +70,7 @@ function ouvre_modal_ajoute(e) {
     //l'affichage de category null
     const category = document.getElementById("categorie");
     category.value = null;
+
 
 
 
@@ -106,6 +89,7 @@ function ouvre_modal_ajoute(e) {
       document.getElementById("btn_valider").style.background="#A7A7A7";
      }
     }
+
 
 
 
@@ -144,7 +128,7 @@ function ouvre_modal_ajoute(e) {
             errCat.style.display = "block";
         }
 
-        // qd aucun element n'est vide
+        // quand aucun element n'est vide
         if (mytitle.value != "" && mycat.value != "" && myImage.value != "") {
             console.log("both has value");
             fetch("http://localhost:5678/api/works", {

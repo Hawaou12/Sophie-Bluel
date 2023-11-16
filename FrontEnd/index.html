@@ -60,7 +60,7 @@
 							<div id="telecharger_image"></div>
 						</div>
 						<div id="container_modalAjouter" style="display:contents">
-							<img class="photo" src="./assets/images/photo.jpg" alt="image"></img>
+							<img class="photo" src="./assets/images/photo.jpg" alt="image">
 							<input name="image" type="file" id="img_input" accept="image/png , image/jpg  "
 								class="input_img_btn">
 							<button type="button" id="ajouter" class="modal_ajouter ajouter">+ Ajouter photo</button>
@@ -80,8 +80,7 @@
 					<div class="input_modal_ajouter">
 						<label>Catégorie</label>
 						<select name="category" id="categorie" class="input_ajouter_choix" required>
-
-						</select>
+                        </select>
 						<p id="errorCategory">La catégorie de l'image ne peut pas être vide</p>
 					</div>
 
@@ -145,7 +144,7 @@
 
 			</div>
 			<div id="filter">
-				<button id="btn1"  class="btn btnStyle" onclick="changeState(event)">Tous</button>
+				<button id="btnAllProjects"  class="btn btnStyle">Tous</button>
 			</div>
 			<div id="myGallery" class="gallery"></div>
 		</section>
