@@ -1,10 +1,13 @@
-fetch("http://localhost:5678/api/works")
-    .then((response) => response.json())
-    .then((works) => {
-        //console.log(works);
-        createWorks(works);
-        initCategories(works);
-    });
+function init() {
+    fetch("http://localhost:5678/api/works")
+        .then((response) => response.json())
+        .then((works) => {
+            //console.log(works);
+            createWorks(works);
+            initCategories(works);
+        });
+}
+init();
 
 //### récupération des categories par API
 
@@ -54,6 +57,13 @@ function createWorks(works) {
 ////    creation des boutons flitres (par catégorie)
 function createCategories(categoriesData, works) {
     const myDiv = document.getElementById("filter");
+    myDiv.innerHTML = "";
+
+    let button = document.createElement("button");
+    button.className = "btn btnStyle";
+    button.textContent = "Tous";
+    myDiv.appendChild(button);
+
     for (const categorie of categoriesData) {
         let button = document.createElement("button");
         button.className = "btn btnStyle";

@@ -15,11 +15,11 @@ btn.onclick = function () {
     // recuperation des éléments par classe###########
     document.querySelectorAll(".iconPoubelle").forEach((element) => {
         element.addEventListener("click", function (e) {
-            const imgPath = document.getElementsByName("imageA");
-            const imgAttrib = imgPath.src;
-            const imgElem = document.querySelector("img");
+            // const imgPath = document.getElementsByName("imageA");
+            // const imgAttrib = imgPath.src;
+            // const imgElem = document.querySelector("img");
             //const imgPath = imgElem.src;
-            console.log(e.target.id);
+            // console.log(e.target.id);
 
             let id = e.target.id;
 
@@ -30,6 +30,9 @@ btn.onclick = function () {
                     //accept: "application/json",
                 },
                 method: "DELETE",
+            }).then((response) => {
+                //console.log(works);
+                init();
             });
             //console.log(imgPath)
         });
@@ -61,7 +64,6 @@ function ouvre_modal_ajoute(e) {
     modalAjouter = model_page;
     modalAjouter.querySelector("modal-javascipt");
 
-
     document.getElementById("ajouter").addEventListener("click", function (event) {
         event.preventDefault();
         document.getElementById("img_input").click();
@@ -71,29 +73,19 @@ function ouvre_modal_ajoute(e) {
     const category = document.getElementById("categorie");
     category.value = null;
 
-
-
-
-
     document.getElementById("btn_valider").addEventListener("mouseover", mouseOver);
 
     function mouseOver() {
-      const mytitle = document.getElementById("input_modal");
-      const mycat = document.getElementById("categorie");
-      const myImage = document.getElementById("img_input");
+        const mytitle = document.getElementById("input_modal");
+        const mycat = document.getElementById("categorie");
+        const myImage = document.getElementById("img_input");
 
-      if (mytitle.value != "" && mycat.value != "" && myImage.value != "") {
-        document.getElementById("btn_valider").style.background="#1d6154";
-       
-     }else{
-      document.getElementById("btn_valider").style.background="#A7A7A7";
-     }
+        if (mytitle.value != "" && mycat.value != "" && myImage.value != "") {
+            document.getElementById("btn_valider").style.background = "#1d6154";
+        } else {
+            document.getElementById("btn_valider").style.background = "#A7A7A7";
+        }
     }
-
-
-
-
-
 
     document.getElementById("btn_valider").addEventListener("click", function (event) {
         event.preventDefault();
@@ -138,6 +130,12 @@ function ouvre_modal_ajoute(e) {
                 },
                 method: "POST",
                 body: data,
+            }).then((response) => {
+                //console.log(works);
+                init();
+                //Fermeture de la modal
+              
+                // modal.style.display = "none";
             });
         }
     });
