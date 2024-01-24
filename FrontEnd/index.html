@@ -37,8 +37,11 @@
 				<span class="close">&times;</span>
 				<div id="modalGallery">
 				</div>
+				<div class="modalJ">
 				<button id="ajouterModal" class="ajouterModal">Ajouter une photo</button>
 				<p class="supprimerGalerie">Supprimer la galerie</p>
+			</div>
+
 			</div>
 		</section>
 	</div>
@@ -49,7 +52,7 @@
 		style="display:none" enctype="multipart/form-data">
 		<div></div>
 		<div class="modal-content modal-javascipt">
-			<button id="modal_close"></button>
+			<button id="modal_close">x</button>
 			<i id="left" class="fa-sharp fa-solid fa-arrow-left"></i>
 
 			<section class="modalBody">
@@ -59,12 +62,11 @@
 						<div id="telechargerImage" style="display:none">
 							<div id="telecharger_image"></div>
 						</div>
-						<div id="container_modalAjouter" style="display:contents">
-							<img class="photo" src="./assets/images/photo.jpg" alt="image">
-							<input name="image" type="file" id="img_input" accept="image/png , image/jpg  "
-								class="input_img_btn">
+						<div id="container_modalAjouter">
+							<i  class=" photo fa-regular fa-image"></i>
+							<input name="image" type="file" id="img_input" accept="image/png , image/jpg  "class="input_img_btn">
 							<button type="button" id="ajouter" class="modal_ajouter ajouter">+ Ajouter photo</button>
-							 <input type="file" id="uploadFile" name="testupload" accept="image/png , image/jpeg "> 
+							 <input type="file" id="uploadFile" name="testupload" accept="image/png , image/jpeg ">
 							
 							<p>jpg, png : 4mo max</p>
 							
@@ -150,7 +152,7 @@
 		</section>
 
 		<section id="contact">
-			<h2>Contact</h2>
+			<h2 class="titleH2">Contact</h2>
 			<p>Vous avez un projet ? Discutons-en !</p>
 			<form action="#" method="post">
 				<label for="name">Nom</label>

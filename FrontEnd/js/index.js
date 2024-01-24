@@ -59,10 +59,15 @@ function createCategories(categoriesData, works) {
     const myDiv = document.getElementById("filter");
     myDiv.innerHTML = "";
 
-    let button = document.createElement("button");
-    button.className = "btn btnStyle";
-    button.textContent = "Tous";
-    myDiv.appendChild(button);
+    // Gestion BTN Tous
+    let btnAllProjects = document.createElement("button");
+    btnAllProjects.className = "btn btnStyle";
+    btnAllProjects.textContent = "Tous";
+    btnAllProjects.addEventListener("click", (event) => {
+        changeState(event, works);
+    });
+
+    myDiv.appendChild(btnAllProjects);
 
     for (const categorie of categoriesData) {
         let button = document.createElement("button");
@@ -74,12 +79,6 @@ function createCategories(categoriesData, works) {
         };
         myDiv.appendChild(button);
     }
-
-    // Gestion BTN Tous
-    const btnAllProjects = document.getElementById("btnAllProjects");
-    btnAllProjects.addEventListener("click", (event) => {
-        changeState(event, works);
-    });
 }
 
 //####  fionction changement  de couleur des boutuons ######
