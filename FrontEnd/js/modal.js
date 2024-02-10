@@ -15,12 +15,6 @@ btn.onclick = function () {
     // recuperation des éléments par classe###########
     document.querySelectorAll(".iconPoubelle").forEach((element) => {
         element.addEventListener("click", function (e) {
-            // const imgPath = document.getElementsByName("imageA");
-            // const imgAttrib = imgPath.src;
-            // const imgElem = document.querySelector("img");
-            //const imgPath = imgElem.src;
-            // console.log(e.target.id);
-
             let id = e.target.id;
 
             //#################### DELETE #####################
@@ -154,16 +148,10 @@ document.getElementById("btn_valider").addEventListener("click", function (event
 
 document.getElementById("ajouterModal").addEventListener("click", ouvre_modal_ajoute);
 
-//const stop = function (e) {
-//e.stop();};
-
 //************fermer le modal  ajout photo **************//
 function fermer_modal_ajoute(e) {
     e.preventDefault();
     close_modal_ajouter();
-    // modalAjouter?.removeEventListener("click", fermer_modal_ajoute);
-    // Appelez la fonction pour réinitialiser les données du modal
-    
 }
 
 function close_modal_ajouter() {

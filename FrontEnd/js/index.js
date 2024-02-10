@@ -94,10 +94,6 @@ function changeState(event, works) {
     const clickedElement = event.target;
     clickedElement.style.background = "#1d6154";
     clickedElement.style.color = "white";
-    //clickedElement.textContent;
-    //console.log("showing click content");
-    //console.log(clickedElement.textContent);
-    //filter(clickedElement.textContent, works);
 
     //##### filtre du bouton Tous######""
     if (clickedElement.textContent == "Tous") {
