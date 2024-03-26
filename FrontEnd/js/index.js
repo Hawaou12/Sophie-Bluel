@@ -6,8 +6,9 @@ function init() {
             createWorks(works);
             initCategories(works);
         });
+        
 }
-init();
+ init();
 
 //### récupération des categories par API
 

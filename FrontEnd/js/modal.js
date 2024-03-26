@@ -63,12 +63,14 @@ function ouvre_modal_ajoute(e) {
 
     // Ajoutez l'événement
     document.getElementById("ajouter").addEventListener("click", handleAjouterClick);
+   
 }
 
 // Ajoutez une fonction distincte pour gérer l'événement "ajouter"
 function handleAjouterClick(event) {
     event.preventDefault();
     document.getElementById("img_input").click();
+  
 }
 
 //l'affichage de category null
@@ -137,13 +139,15 @@ document.getElementById("btn_valider").addEventListener("click", function (event
         //console.log(works);
 
         suprimer();
-
+        
         init();
         //Fermeture de la modal
         close_modal_ajouter();
         modal.style.display = "none";
     }
+
 });
+
 // }
 
 document.getElementById("ajouterModal").addEventListener("click", ouvre_modal_ajoute);
@@ -165,7 +169,9 @@ document.getElementById("modal_close").addEventListener("click", fermer_modal_aj
 document.getElementById("left").addEventListener("click", fermer_modal_ajoute);
 
 //**********************telecharger les photos***************************//
+
 function telecharger() {
+    console.log("Fonction telecharger() appelée.");
     const input = document.getElementById("img_input");
 
     var telecharge_image = "";
@@ -173,16 +179,27 @@ function telecharger() {
     const reader = new FileReader();
     reader.addEventListener("load", () => {
         telecharge_image = reader.result;
+
         const photo = document.getElementById("telecharger_image");
         document.getElementById("telechargerImage").style.display = null;
 
         photo.style.backgroundImage = `url(${telecharge_image} )`;
         document.getElementById("container_modalAjouter").style.display = "none";
+
+        /// Appel de la fonction init() pour rafraîchir la page après l'ajout de la photo
+        init(); 
+
+        console.log("Nouvelle photo ajoutée. Rechargement des travaux...");
     });
-    reader.readAsDataURL(this.files[0]);
+
+    reader.readAsDataURL(input.files[0]);
 }
 
 document.getElementById("img_input").addEventListener("change", telecharger);
+
+
+
+
 
 // Api
 
@@ -201,6 +218,7 @@ fetch("http://localhost:5678/api/categories")
             mySelect.appendChild(optionItem);
             /////////////
         }
+      
     });
 
 function suprimer() {
